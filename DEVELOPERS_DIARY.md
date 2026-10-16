@@ -178,7 +178,7 @@ The debugging process was particularly useful because I encountered two differen
 
 I learned that displaying detailed error messages is more useful than hiding every error behind a general response. I also improved my understanding of variable assignment, indentation, and exception handling.
 
-Although ChatGPT provided explanations and suggested modifications, I reviewed the changes and tested the application myself. I did not rely on Gemini to perform the financial calculations, as these could be implemented and validated more reliably through my own Python function.
+Although AI provided explanations and suggested modifications, I reviewed the changes and tested the application myself. I did not rely on Gemini to perform the financial calculations, as these could be implemented and validated more reliably through my own Python function.
 
 Overall, this experience improved my confidence in debugging, testing, and evaluating AI-generated suggestions.
 
@@ -186,12 +186,22 @@ Overall, this experience improved my confidence in debugging, testing, and evalu
 
 **Figure 1 – Gemini API Error (503 UNAVAILABLE)**
 
-Screenshot captured from Google Colab showing the error message returned by the Gemini API.
+![Gemini API Error](gemini-error.png)
 
 **Figure 2 – AI Debugging Discussion**
 
-ChatGPT explanation of the `UnboundLocalError`, including the possible indentation or variable-assignment issue. The quoted explanation above was translated from Vietnamese.
+ChatGPT explanation of the `UnboundLocalError`, including the possible indentation or variable-assignment issue. 
 
-**Figure 3 – Application Testing**
+**AI Response:**
 
-Gradio interface demonstrating the Student Budget Assistant with financial inputs, calculated budget results, and Gemini-generated advice.
+**2. Error: `UnboundLocalError: prompt`**
+
+This error is not caused by Gemini being overloaded. Python is trying to use the `prompt` variable before it has been assigned a value.
+
+Most likely, the `prompt = f"""..."""` statement is incorrectly indented or placed inside a condition that was not executed.
+
+**Note:** `prompt = f"""` and `try:` must be indented at the same level, inside the `budget_assistant()` function.
+
+After making the changes, run the code cell again and try clicking Submit.
+
+
